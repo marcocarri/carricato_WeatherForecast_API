@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # app esterne (Django REST Framework)
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    # app locali
+    'users',
+    'weather',
 ]
 
 MIDDLEWARE = [
@@ -115,3 +123,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# user model personalizzato
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
+# configurazione globale di Django REST Framework (DRF)
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
