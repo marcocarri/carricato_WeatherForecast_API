@@ -108,6 +108,6 @@ pip install HTTPie
    ```bash
    # Salvataggio richiesta
    http POST http://127.0.0.1:8000/api/weather/saved/ city="Firenze" target_date="2026-06-10" Authorization:"Token d8d64e8de083241b0bef5b2ce9b70e1bc71c1fef"
-   # Lettura Lista delle richieste salvate
+   # Lettura lista delle richieste salvate
    http GET http://127.0.0.1:8000/api/weather/saved/ Authorization:"Token d8d64e8de083241b0bef5b2ce9b70e1bc71c1fef"
    ```
