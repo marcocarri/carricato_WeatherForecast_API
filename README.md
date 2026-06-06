@@ -71,7 +71,7 @@ testare immediatamente il progetto
 
 
 ## Link di pubblicazione online
-**URL Base dell'API pubblicata:** [link del deploy da inserire]
+**URL Base dell'API pubblicata:** *marcocarri.eu.pythonanywhere.com*
 
 
 ## Endpoint dell'API REST
