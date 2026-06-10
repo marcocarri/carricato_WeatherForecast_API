@@ -22,4 +22,7 @@ urlpatterns = [
 
     # tutte le richieste che iniziano con /api/weather/ verranno passate agli url dell'app weather
     path('api/weather/', include('weather.urls')),
+
+    # tutte le richieste che iniziano con /api/weather/ verranno passate agli url dell'app user
+    path('api/users/', include('users.urls')),
 ]
