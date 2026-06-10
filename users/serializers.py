@@ -17,3 +17,31 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+
+
+class AdminUserSerializer(serializers.ModelSerializer):
+    """
+    serializer riservato agli amministratori per la gestione completa degli utenti.
+    """
+    password = serializers.CharField(write_only=True, required=False, style={'input_type': 'password'})
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'is_premium', 'is_active', 'password']
+        read_only_fields = ['is_staff']
+
+    def create(self, validated_data):
+        password = validated_data.pop('password', None)
+        user = super().create(validated_data)
+        if password:
+            user.set_password(password)
+            user.save()
+        return user
+
+    def update(self, instance, validated_data):
+        password = validated_data.pop('password', None)
+        user = super().update(instance, validated_data)
+        if password:
+            user.set_password(password)
+            user.save()
+        return user

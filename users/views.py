@@ -1,13 +1,16 @@
-from rest_framework import generics, status
+from rest_framework import generics, status, viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from django.contrib.auth import get_user_model
-from .serializers import UserRegistrationSerializer
+from .serializers import UserRegistrationSerializer, AdminUserSerializer
 
 User = get_user_model()
 
 class RegisterView(generics.CreateAPIView):
+    """
+    endpoint per registrare un account
+    """
     queryset = User.objects.all()
     permission_classes = [AllowAny]
     serializer_class = UserRegistrationSerializer
@@ -36,7 +39,8 @@ class UpgradePremiumView(APIView):
 
 class DowngradePremiumView(APIView):
     """
-    endpoint per annullare l'abbonamento Premium e tornare Standard.
+    endpoint per annullare l'abbonamento Premium e tornare Standard
+    richiede autenticazione (JWT)
     """
     permission_classes = [IsAuthenticated]
 
@@ -52,3 +56,13 @@ class DowngradePremiumView(APIView):
         return Response({
             "messaggio": "Hai disdetto l'abbonamento. Ora sei un utente Standard."
         }, status=status.HTTP_200_OK)
+
+
+class UserAdminViewSet(viewsets.ModelViewSet):
+    """
+    endpoint per visualizzare la lista utenti
+    richiede autenticazione (JWT) ed è riservato solo agli amministratori (isAdminUser = true)
+    """
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = AdminUserSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
