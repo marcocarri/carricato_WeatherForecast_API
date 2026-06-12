@@ -3,7 +3,7 @@
 
 ***Studente:*** **Marco Carricato**, ***Matricola:*** **7135631** \
 ***Tipo di progetto:*** **REST API**  
-***Framework e Librerie:*** **Django, Django REST Framework (DRF), SimpleJWT, SQLite**
+***Framework e Librerie:*** **Django, Django REST Framework (DRF), SimpleJWT, SQLite, drf-spectacular**
 
 
 ## Descrizione del progetto
@@ -92,7 +92,8 @@ uno di questi account per generare un token valido.
 
 
 ## Link di pubblicazione online
-**URL Base dell'API pubblicata:** *marcocarri.eu.pythonanywhere.com*
+**URL Base dell'API pubblicata:** [https://marcocarri.eu.pythonanywhere.com](https://marcocarri.eu.pythonanywhere.com)  
+**Documentazione Grafica API (Swagger UI):** [https://marcocarri.eu.pythonanywhere.com/api/docs/](https://marcocarri.eu.pythonanywhere.com/api/docs/)
 
 
 ## Endpoint dell'API REST
@@ -110,6 +111,13 @@ uno di questi account per generare un token valido.
 | GET                 | /api/weather/stats/       | JWT (Bearer)       | Premium            | Restituisce statistiche aggregate sullo storico meteo                                                                                                                                                                                                               |
 
 ## Istruzioni per il Test (con HTTPie)
+### Modalità 1: Interfaccia Grafica (Swagger UI)
+Navigando all'indirizzo `/api/docs/` è possibile esplorare l'API in modo grafico 
+1. Clicca su `/api/users/login/`, premi **Try it out**, inserisci le credenziali di un utente demo ed esegui
+2. Copia il token `access` restituito
+3. Clicca sul pulsante **Authorize** (il lucchetto) in cima alla pagina e incolla il token per sbloccare e testare tutti gli endpoint 
+
+### Modalità 2: Tramite terminale (HTTPie)
 Per testare le API da terminale, è richiesto il pacchetto HTTPie installato:
 ```bash 
 pip install HTTPie
