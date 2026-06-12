@@ -13,7 +13,7 @@ from .permissions import IsPremiumUser
 
 class WeatherForecastView(APIView):
     """
-    endpoint per richiedere le previsioni meteo
+    endpoint per richiedere le previsioni meteo,
     accessibile a tutti, ma limitato a 5 richieste al giorno per non-Premium
     """
     permission_classes = [AllowAny]
@@ -55,7 +55,7 @@ class WeatherForecastView(APIView):
 
 class SavedQueryViewSet(viewsets.ModelViewSet):
     """
-    endpoint per gli utenti Premium: permette di salvare, listare e cancellare le query
+    endpoint per gli utenti Premium: permette di salvare, listare e cancellare le query,
     supporta GET (lista/singolo), POST (crea), DELETE (elimina)
     """
     serializer_class = SavedQuerySerializer
@@ -83,7 +83,7 @@ class SavedQueryViewSet(viewsets.ModelViewSet):
 
 class WeatherStatsView(APIView):
     """
-    endpoint per le statistiche avanzate
+    endpoint per le statistiche avanzate,
     restituisce un'aggregazione dei dati storici dell'utente Premium
     """
     permission_classes = [IsAuthenticated, IsPremiumUser]

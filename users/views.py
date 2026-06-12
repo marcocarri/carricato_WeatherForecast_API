@@ -18,7 +18,7 @@ class RegisterView(generics.CreateAPIView):
 
 class UpgradePremiumView(APIView):
     """
-    endpoint per simulare l'acquisto dell'abbonamento Premium
+    endpoint per simulare l'acquisto dell'abbonamento Premium,
     richiede autenticazione (JWT)
     """
     permission_classes = [IsAuthenticated]
@@ -39,7 +39,7 @@ class UpgradePremiumView(APIView):
 
 class DowngradePremiumView(APIView):
     """
-    endpoint per annullare l'abbonamento Premium e tornare Standard
+    endpoint per annullare l'abbonamento Premium e tornare Standard,
     richiede autenticazione (JWT)
     """
     permission_classes = [IsAuthenticated]
@@ -60,8 +60,8 @@ class DowngradePremiumView(APIView):
 
 class UserAdminViewSet(viewsets.ModelViewSet):
     """
-    endpoint per visualizzare la lista utenti
-    richiede autenticazione (JWT) ed è riservato solo agli amministratori (isAdminUser = true)
+    endpoint per visualizzare la lista utenti,
+    richiede autenticazione (JWT) ed è riservato solo allo staff (is_staff = true)
     """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = AdminUserSerializer
