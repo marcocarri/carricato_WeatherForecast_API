@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # app esterne (Django REST Framework)
     'rest_framework',
+    'drf_spectacular',
 
     # app locali
     'users',
@@ -138,6 +139,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 # configurazione JWT
@@ -145,4 +147,13 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+# configurazione dfr-spectacular
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'carricato_WeatherForecast_API',
+    'DESCRIPTION': "Documentazione dell'applicazione back-end per la consultazione delle previsioni meteo e la gestione degli utenti. Il sistema include: un tracciamento giornaliero delle richieste per limitare gli abusi da parte degli utenti pubblici; un sistema di abbonamento Premium che permette il salvataggio delle richieste, la consultazione dello storico e l'accesso alle statistiche dell'account; un'autenticazione sicura tramite JWT e un pannello di amministrazione REST per i moderatori (RBAC). I dati meteo sono simulati in modo coerente in base a città e data",
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SECURITY': [{'jwt': []}],
 }
