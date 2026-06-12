@@ -152,7 +152,7 @@ SIMPLE_JWT = {
 # configurazione dfr-spectacular
 SPECTACULAR_SETTINGS = {
     'TITLE': 'carricato_WeatherForecast_API',
-    'DESCRIPTION': "Documentazione dell'applicazione back-end per la consultazione delle previsioni meteo e la gestione degli utenti. Il sistema include: un tracciamento giornaliero delle richieste per limitare gli abusi da parte degli utenti pubblici; un sistema di abbonamento Premium che permette il salvataggio delle richieste, la consultazione dello storico e l'accesso alle statistiche dell'account; un'autenticazione sicura tramite JWT e un pannello di amministrazione REST per i moderatori (RBAC). I dati meteo sono simulati in modo coerente in base a città e data",
+    'DESCRIPTION': "Documentazione dell'applicazione back-end per la consultazione delle previsioni meteo e la gestione degli utenti. Il sistema include: un tracciamento giornaliero delle richieste per limitare gli abusi da parte degli utenti pubblici; un sistema di abbonamento Premium che permette il salvataggio delle richieste, la consultazione dello storico e l'accesso alle statistiche dell'account; un'autenticazione sicura tramite JWT e un pannello di amministrazione REST per i moderatori (RBAC). I dati meteo sono simulati in modo coerente in base a città e data.",
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     'SECURITY': [{'jwt': []}],
